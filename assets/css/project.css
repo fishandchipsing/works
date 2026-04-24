@@ -1,0 +1,82 @@
+/* ─── Project hero ───────────────────────────────────────────── */
+.project-hero {
+  width: 100%;
+  max-height: 70vh;
+  overflow: hidden;
+  background: #f0f0f0;
+}
+.project-hero img,
+.project-hero video {
+  width: 100%;
+  height: 100%;
+  max-height: 70vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* ─── Project header ─────────────────────────────────────────── */
+.project-header {
+  padding: 3rem 0 1.5rem;
+}
+.project-header .label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.project-header h1 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.05;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+.project-header .tagline {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.65;
+  font-family: var(--font-sans);
+}
+
+/* ─── Project body ───────────────────────────────────────────── */
+.project-body {
+  padding-bottom: 4rem;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+}
+.project-body p {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 600px;
+  color: var(--fg);
+  font-family: var(--font-sans);
+}
+.project-body p + p {
+  margin-top: 1.25em;
+}
+.project-body em {
+  font-style: italic;
+}
+
+/* ─── Back nav ───────────────────────────────────────────────── */
+.project-nav {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid #eee;
+}
+.project-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid #eee;
+  transition: color 0.15s, border-color 0.15s;
+}
+.project-nav a:hover {
+  color: var(--fg);
+  border-color: var(--fg);
+}

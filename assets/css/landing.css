@@ -1,0 +1,255 @@
+/* ─── Fonts ─────────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Mono';
+  src: url('../fonts/Mono-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Mono';
+  src: url('../fonts/Mono-Regular.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Mono';
+  src: url('../fonts/Mono-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+@font-face {
+  font-family: 'Sans';
+  src: url('../fonts/Sans-Text.ttf') format('truetype');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'Sans';
+  src: url('../fonts/Sans-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+/* ─── Tokens ─────────────────────────────────────────────────── */
+:root {
+  --bg: #ffffff;
+  --fg: #111111;
+  --muted: #999999;
+  --accent: #e05a3a;
+  --font-mono: 'Mono', 'Courier New', monospace;
+  --font-body: 'Sans', -apple-system, sans-serif;
+  --measure: 52ch;
+  --pad: clamp(1.5rem, 6vw, 3rem);
+}
+
+/* ─── Reset ──────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+}
+
+/* ─── Essay container ────────────────────────────────────────── */
+.essay {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: clamp(3rem, 10vw, 5rem) var(--pad) 4rem;
+}
+
+/* ─── Intro (fixed, always first) ───────────────────────────── */
+p.intro {
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+
+/* ─── Shuffled blocks ────────────────────────────────────────── */
+.block {
+  margin-bottom: 2.5rem;
+}
+.block p {
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.75;
+  color: var(--fg);
+}
+.block p + p {
+  margin-top: 0.6rem;
+}
+
+/* ─── Footnotes ──────────────────────────────────────────────── */
+.ref {
+  color: var(--accent);
+  font-size: 0.7em;
+  vertical-align: super;
+  line-height: 0;
+}
+.footnote {
+  font-size: 0.78rem !important;
+  color: var(--muted) !important;
+  line-height: 1.6 !important;
+  margin-top: 0.5rem !important;
+}
+
+/* ─── Links ──────────────────────────────────────────────────── */
+a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid #ddd;
+  transition: border-color 0.15s, color 0.15s;
+}
+a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* ─── Archive footer ─────────────────────────────────────────── */
+.archive-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid #eee;
+}
+
+.archive-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+}
+
+.mini-archive {
+  list-style: none;
+  margin-bottom: 2.5rem;
+}
+.mini-archive li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.mini-archive li a {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  border-bottom: none;
+  color: var(--fg);
+}
+.mini-archive li a:hover {
+  color: var(--accent);
+}
+.mini-archive li span {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.mini-archive li.see-all {
+  border-bottom: none;
+  margin-top: 0.75rem;
+  justify-content: flex-start;
+}
+.mini-archive li.see-all a {
+  font-size: 0.78rem;
+  color: var(--muted);
+  border-bottom: 1px solid #eee;
+}
+.mini-archive li.see-all a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.colophon {
+  font-size: 0.72rem;
+  color: #ccc;
+  font-family: var(--font-mono);
+}
+.colophon a {
+  color: #ccc;
+  border-bottom: 1px solid #eee;
+}
+.colophon a:hover {
+  color: var(--muted);
+}
+
+/* ─── Floating image preview on hover ────────────────────────── */
+#img-preview {
+  position: fixed;
+  width: 200px;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: scale(0.94) translateY(6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+#img-preview.visible {
+  opacity: 0.75;
+  transform: scale(1) translateY(0);
+}
+
+/* Keep text layer clearly above preview */
+.essay {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Scroll fade-in ─────────────────────────────────────────── */
+.block {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.block.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── Talks & writings sections ──────────────────────────────── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: lowercase;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.item-list {
+  list-style: none;
+  margin-bottom: 1rem;
+}
+.item-list li {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+}
+.item-list li .item-title {
+  font-size: 0.82rem;
+  font-family: var(--font-mono);
+  color: var(--fg);
+  line-height: 1.5;
+}
+.item-list li .item-title a {
+  border-bottom: none;
+  color: inherit;
+}
+.item-list li .item-title a:hover {
+  color: var(--accent);
+}
+.item-list li .item-sub {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 0.15rem;
+  font-family: var(--font-sans);
+}
+.item-list li .item-year {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  white-space: nowrap;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simone Rebaudengo — collage</title>
+  <link rel="stylesheet" href="assets/css/collage.css">
+</head>
+<body>
+
+  <div id="stage">
+    <!-- scattered floaters (emoji + cutout imgs) are injected by JS -->
+
+    <main class="collage-essay">
+      <p class="big intro">
+        I <span class="emoji-inline">👋</span> am <em>Simone</em>, and if you are here, I guess you are curious to know what I do&hellip; I do a lot of things around <em>design</em>, <em>products</em> and <em>futures</em> — this site will tell you some of them, but, like me, it might change the order or forget something important. <span class="emoji-inline">🤷</span>
+      </p>
+
+      <div id="shuffle-zone" class="big-blocks"></div>
+
+      <p class="big outro">
+        — some things I made —
+        <br><br>
+        <a href="projects/oio/">oio</a> ·
+        <a href="projects/museum-of-the-future/">Museum of the Future</a> ·
+        <a href="archive/made-in-machina/">Made in Machina/e</a> ·
+        <a href="archive/politics-of-power/">Politics of Power</a> ·
+        <a href="archive/ethical-things/">Ethical Things</a> ·
+        <a href="archive/addicted-products/">Addicted Products</a> ·
+        <a href="archive/">see all →</a>
+      </p>
+
+      <p class="footer-line">
+        <a href="index.html">back to the quiet version</a> · <a href="mailto:simone@rebaudengo.com">contact</a>
+      </p>
+    </main>
+  </div>
+
+  <script>
+    // ── Floater pool: emojis + project cutouts ─────────────────
+    var EMOJIS = [
+      '🍞','🤖','🦾','🧠','🍄','☁️','⚡','🔌','🎭','🎲',
+      '🍌','🍉','🧸','⚠️','🦒','🌻','🌈','🔮','🛸','🪐',
+      '📺','📞','🕹️','💡','🧲','🧪','🧯','🪑','🍽️','🥄',
+      '🐛','🐧','🎨','🖍️','🖌️','📡','🛰️','👁️','🫧','🟧'
+    ];
+    var IMGS = [
+      'assets/img/addictedproducts.png',
+      'assets/img/ethicalthings.jpg',
+      'assets/img/madeinmachina.jpg',
+      'assets/img/politicsofpower.jpg',
+      'assets/img/airpop.png',
+      'assets/img/creativeai.png',
+      'assets/img/yibu.jpg',
+      'assets/img/teacher.jpg',
+      'assets/img/bmw.jpg',
+      'assets/img/unmask.jpg',
+      'assets/img/ghostchef.jpg',
+      'assets/img/philips.jpg'
+    ];
+
+    // ── Utility: random in range ───────────────────────────────
+    function rand(a, b) { return a + Math.random() * (b - a); }
+    function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+    // ── Spawn floaters ─────────────────────────────────────────
+    (function () {
+      var stage = document.getElementById('stage');
+
+      // scatter count scales with viewport
+      var area = window.innerWidth * window.innerHeight;
+      var emojiCount = Math.round(area / 22000); // denser
+      var imgCount   = Math.min(IMGS.length, Math.round(area / 90000));
+
+      // emoji floaters
+      for (var i = 0; i < emojiCount; i++) {
+        var el = document.createElement('span');
+        el.className = 'floater emoji-float';
+        el.textContent = pick(EMOJIS);
+        el.style.left = rand(0, 100) + '%';
+        el.style.top  = rand(0, 100) + '%';
+        el.style.fontSize = rand(1.3, 3.2) + 'rem';
+        el.style.setProperty('--rot', rand(-20, 20) + 'deg');
+        el.style.setProperty('--depth', rand(8, 42).toFixed(1));
+        stage.appendChild(el);
+      }
+
+      // cutout image floaters
+      var imgs = IMGS.slice();
+      for (var j = 0; j < imgCount; j++) {
+        var src = imgs.splice(Math.floor(Math.random() * imgs.length), 1)[0];
+        var im = document.createElement('img');
+        im.className = 'floater img-float';
+        im.src = src;
+        im.alt = '';
+        im.style.left = rand(0, 92) + '%';
+        im.style.top  = rand(0, 92) + '%';
+        im.style.width = rand(90, 180) + 'px';
+        im.style.setProperty('--rot', rand(-12, 12) + 'deg');
+        im.style.setProperty('--depth', rand(14, 55).toFixed(1));
+        stage.appendChild(im);
+      }
+    })();
+
+    // ── Parallax on mouse move ─────────────────────────────────
+    (function () {
+      var floaters = document.querySelectorAll('.floater');
+      var cx = window.innerWidth / 2;
+      var cy = window.innerHeight / 2;
+      var targetX = 0, targetY = 0;
+      var curX = 0, curY = 0;
+
+      window.addEventListener('mousemove', function (e) {
+        targetX = (e.clientX - cx) / cx; // -1 .. 1
+        targetY = (e.clientY - cy) / cy;
+      });
+
+      window.addEventListener('resize', function () {
+        cx = window.innerWidth / 2;
+        cy = window.innerHeight / 2;
+      });
+
+      function loop() {
+        curX += (targetX - curX) * 0.08;
+        curY += (targetY - curY) * 0.08;
+
+        floaters.forEach(function (f) {
+          var d = parseFloat(f.style.getPropertyValue('--depth'));
+          var rot = f.style.getPropertyValue('--rot');
+          var tx = -curX * d;
+          var ty = -curY * d;
+          f.style.transform = 'translate3d(' + tx + 'px,' + ty + 'px,0) rotate(' + rot + ')';
+        });
+        requestAnimationFrame(loop);
+      }
+      loop();
+    })();
+
+    // ── Load blocks from JSON, pick 4, render big ──────────────
+    (function () {
+      var SHOW = 4;
+
+      function shuffle(arr) {
+        for (var i = arr.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+        }
+        return arr;
+      }
+
+      fetch('assets/blocks.json')
+        .then(function (r) { return r.json(); })
+        .then(function (blocks) {
+          var picked = shuffle(blocks).slice(0, SHOW);
+          var zone = document.getElementById('shuffle-zone');
+          picked.forEach(function (data, i) {
+            var p = document.createElement('p');
+            p.className = 'big block-big';
+            p.innerHTML = data.text;
+            p.style.setProperty('--i', i);
+            zone.appendChild(p);
+          });
+        });
+    })();
+  </script>
+</body>
+</html>

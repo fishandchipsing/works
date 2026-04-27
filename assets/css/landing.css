@@ -39,42 +39,78 @@
 /* ─── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
-html, body { height: 100%; overflow: hidden; }
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
 }
 
-/* ─── Snap container ─────────────────────────────────────────── */
-#snap-wrap {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
+/* ─── Page wrapper ───────────────────────────────────────────── */
+#page-wrap {
+  min-height: 100vh;
 }
 
-/* ─── Each snap section ──────────────────────────────────────── */
-.snap {
-  height: 100vh;
-  scroll-snap-align: start;
+/* ─── Block zone: nearly-full-viewport, footer peeks below ──── */
+#block-zone {
+  position: relative;
+  height: 88vh;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 var(--pad);
-  position: relative;
 }
 
-.snap-inner {
+#block-inner {
   max-width: 560px;
   width: 100%;
 }
 
-/* ─── Intro ──────────────────────────────────────────────────── */
-p.intro {
-  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
-  line-height: 1.75;
-  color: var(--muted);
+/* ─── Axis slider — pinned to bottom of zone, never moves ───── */
+#axis-slider {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+.axis-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: #ccc;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+#block-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 72px;
+  height: 1px;
+  background: #e0e0e0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+#block-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fg);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+#block-range::-webkit-slider-thumb:hover {
+  background: var(--accent);
+}
+#block-range::-moz-range-thumb {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--fg);
+  border: none;
+  cursor: pointer;
 }
 
 /* ─── Block text ─────────────────────────────────────────────── */
@@ -82,23 +118,7 @@ p.block-text {
   font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   line-height: 1.75;
   color: var(--fg);
-}
-p.block-text + p {
-  margin-top: 0.6rem;
-}
-
-/* ─── Footnotes ──────────────────────────────────────────────── */
-.ref {
-  color: var(--accent);
-  font-size: 0.7em;
-  vertical-align: super;
-  line-height: 0;
-}
-.footnote {
-  font-size: 0.78rem;
-  color: var(--muted);
-  line-height: 1.6;
-  margin-top: 0.75rem;
+  text-align: center;
 }
 
 /* ─── Links ──────────────────────────────────────────────────── */
@@ -124,14 +144,16 @@ a:hover {
   animation: ch-in 1ms calc(var(--i) * 5ms) linear forwards;
 }
 
-/* ─── Footer snap section ────────────────────────────────────── */
-.snap-footer {
-  align-items: flex-start;
-  padding-top: clamp(3rem, 8vh, 5rem);
-  padding-bottom: clamp(2rem, 5vh, 3rem);
-  height: auto;
-  min-height: 100vh;
-  overflow-y: auto;
+/* ─── Footer ─────────────────────────────────────────────────── */
+#site-footer {
+  padding: clamp(3rem, 8vh, 5rem) var(--pad) clamp(2rem, 5vh, 3rem);
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer-inner {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .archive-label {
@@ -270,56 +292,12 @@ a:hover {
   transform: scale(1) translateY(0);
 }
 
-/* ─── Dot navigation ─────────────────────────────────────────── */
-#dot-nav {
-  position: fixed;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  z-index: 20;
-}
-.dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #ddd;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-}
-.dot.active {
-  background: var(--fg);
-  transform: scale(1.4);
-}
-
-/* ─── Scroll hint ────────────────────────────────────────────── */
-#scroll-hint {
-  position: fixed;
-  bottom: 1.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: var(--muted);
-  z-index: 20;
-  animation: hint-bob 1.8s ease-in-out infinite;
-  transition: opacity 0.4s;
-}
-#scroll-hint.hidden { opacity: 0; pointer-events: none; }
-@keyframes hint-bob {
-  0%, 100% { transform: translateX(-50%) translateY(0); }
-  50%       { transform: translateX(-50%) translateY(5px); }
-}
-
 /* ─── Mode toggle ────────────────────────────────────────────── */
 #mode-toggle {
   position: fixed;
   top: 1.4rem;
-  left: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   gap: 2px;
   z-index: 30;
@@ -358,61 +336,53 @@ a:hover {
   justify-content: center;
 }
 .llm-inner {
-  max-width: 480px;
-  padding: var(--pad);
+  max-width: 560px;
+  width: 100%;
+  padding: 0 var(--pad);
   text-align: center;
 }
 .llm-hello {
-  font-family: var(--font-mono);
-  font-size: clamp(2.5rem, 8vw, 5rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+  line-height: 1.75;
   color: var(--fg);
-}
-.llm-sub {
   font-family: var(--font-body);
-  font-size: 0.95rem;
-  line-height: 1.7;
-  color: var(--muted);
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 #copy-btn {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
-  background: var(--fg);
-  color: var(--bg);
+  font-size: 0.78rem;
+  background: transparent;
+  color: var(--muted);
   border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
+  border-bottom: 1px solid #ddd;
+  padding: 0;
   cursor: pointer;
-  letter-spacing: 0.03em;
-  transition: background 0.15s, transform 0.1s;
+  letter-spacing: 0;
+  transition: color 0.15s, border-color 0.15s;
 }
-#copy-btn:hover { background: var(--accent); }
-#copy-btn:active { transform: scale(0.97); }
+#copy-btn:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
 .llm-confirm {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--accent);
-  margin-top: 0.75rem;
+  margin-top: 0.6rem;
   opacity: 0;
   transition: opacity 0.3s;
   height: 1.2em;
 }
 .llm-confirm.visible { opacity: 1; }
-.llm-hint {
+.llm-note {
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: 0.65rem;
   color: #ccc;
-  margin-top: 2.5rem;
-  line-height: 1.6;
+  margin-top: 2rem;
 }
 
 /* ─── Body mode switching ────────────────────────────────────── */
-body[data-mode="llm"] #snap-wrap,
-body[data-mode="llm"] #dot-nav,
-body[data-mode="llm"] #scroll-hint,
+body[data-mode="llm"] #page-wrap,
 body[data-mode="llm"] #img-preview {
   display: none;
 }

@@ -1,90 +1,50 @@
 [
   {
-    "id": "algorithms",
-    "text": "The algorithms think I\u2019m a movie director, a journalist said that I design wonderful and terrifying future things, my grandma still wants to believe that I\u2019m an engineer, when I say I\u2019m a designer, most people ask me of what\u2026"
+    "id": "fictional-products",
+    "text": "I design things that don\u2019t exist yet \u2014 sometimes as a warning, sometimes as a proposal, sometimes just to see what the world looks like if they did. A <a href=\"archive/addicted-products/\" data-preview=\"assets/img/addictedproducts.png\">toaster that could sell itself</a>. A <a href=\"archive/politics-of-power/\" data-preview=\"assets/img/politicsofpower.jpg\">plug that votes</a>. A mask that smiles for you. I call it product design but most people call it something else depending on what they studied."
   },
   {
-    "id": "design-future-products",
-    "text": "I normally say that I design future products, sometimes real and sometimes fictional.<span class=\"ref\">*</span>",
-    "footnote": "Yeah I know, it\u2019s a bit of a cop out, but it worked so far."
+    "id": "animist-things",
+    "text": "I\u2019ve spent most of my career convinced that objects have something like intentions. After IoT and AI and fifteen years watching a Roomba navigate around furniture, I don\u2019t think I\u2019m wrong. I work at <a href=\"projects/oio/\" data-preview=\"\">oio</a> now, still trying to figure out what it means to build things when the things can talk back."
   },
   {
-    "id": "oio-current",
-    "text": "Right now I\u2019m exploring how to create products for a less boring future as a co-founder and futures director at <a href=\"projects/oio/\" data-preview=\"\">oio</a>."
+    "id": "machine-collaboration",
+    "text": "I think I\u2019m not that great at designing things, so I\u2019ve spent a lot of time finding ways to make machines do it with me. <a href=\"https://spawns.pages.dev/\" target=\"_blank\" rel=\"noopener\">Spoons co-designed with algorithms and craftsmen</a>. <a href=\"https://updatables.oio.studio/\" target=\"_blank\" rel=\"noopener\">Furniture that evolves</a>. A whole <a href=\"archive/made-in-machina/\" data-preview=\"assets/img/madeinmachina.jpg\">fictional company that generated hybrid products</a>. What surprised me is that the collaboration is always more interesting when neither party is fully in control."
   },
   {
-    "id": "big-clients",
-    "text": "I have designed future worlds, products and experiences for companies and organisations around the world. I was part in developing the <a href=\"projects/museum-of-the-future/\" data-preview=\"\">first museum of the future</a> in the world, worked on AI-assisted design and future mobility for <a href=\"archive/bmw-research/\" data-preview=\"assets/img/bmw.jpg\">BMW</a>, the first smart pollution mask for <a href=\"archive/airpop/\" data-preview=\"assets/img/airpop.png\">Xiaomi</a>, very very secret stuff with Google X and some non-human intelligence inspired assistants for <a href=\"archive/gcl/\" data-preview=\"assets/img/gcl.jpg\">Google AI</a>.<span class=\"ref\">*</span>",
-    "footnote": "I have also really worked for them\u2026 not just saying it. And for other companies like frog, Philips and Logitech. At some point I was designing a lot of masks\u2026 before corona times btw."
+    "id": "mundane-futures",
+    "text": "The future shows up in boring things first. A mask that smiles. A <a href=\"archive/politics-of-power/\" data-preview=\"assets/img/politicsofpower.jpg\">plug with a political system inside it</a>. I look for the moments where everyday objects start behaving in ways that suggest something has quietly shifted. That\u2019s where the interesting design lives."
   },
   {
-    "id": "mundane-things",
-    "text": "I really like simple and mundane things and use them to imagine parallel presents and near futures."
+    "id": "oio-now",
+    "text": "Right now I run <a href=\"projects/oio/\" data-preview=\"\">oio</a> with a small team of humans and some machines. We build products for companies like Google and IKEA and try to make futures that are less predictable than the ones everyone else seems to be designing. It\u2019s part studio, part research, part school for people who want to think seriously about what comes next."
   },
   {
-    "id": "weird-products",
-    "text": "I made masks that can smile for you, <a href=\"archive/addicted-products/\" data-preview=\"assets/img/addictedproducts.png\">toasters that can sell themselves</a>, and <a href=\"archive/politics-of-power/\" data-preview=\"assets/img/politicsofpower.jpg\">plugs that have political systems within them</a>."
-  },
-  {
-    "id": "animist-roomba",
-    "text": "Generally I think I\u2019m a bit of an animist, but after IoT and AI who isn\u2019t these days\u2026 I love Roombas as I think they are the most underestimated non-human intelligence that actually made it in our homes.<span class=\"ref\">*</span>",
-    "footnote": "Don\u2019t @ me."
-  },
-  {
-    "id": "machines-help-design",
-    "text": "I think I\u2019m not that good at really designing stuff so I explore ways in which machines can help me do that. I made a <a href=\"archive/made-in-machina/\" data-preview=\"assets/img/madeinmachina.jpg\">fictional company that generates Chinese/Scandinavian mashup products</a>, generated a series of plates emerging from abundance of materials, <a href=\"https://spawns.pages.dev/\" target=\"_blank\" rel=\"noopener\">spoons co-designed with algorithms and craftsmen</a>, and <a href=\"https://updatables.oio.studio/\" target=\"_blank\" rel=\"noopener\">chairs that evolve</a>."
-  },
-  {
-    "id": "other-mediums",
-    "text": "Sometimes when I don\u2019t want to make an actual product I explore futures through different mediums. I wrote fables about more-than-human futures, made immersive installations about being an appliance with Bruce Sterling, and also made a short movie that won the Most Uncanny award at the Robot Film Festival."
-  },
-  {
-    "id": "speaking",
-    "text": "I like to speak about new ways to design with AI, more-than-human futures, the difference between real and fictional\u2014and I used to speak a lot about toasters."
+    "id": "press-identity",
+    "text": "A journalist once wrote that my work was \u201cwonderful and terrifying all at once.\u201d A museum called me a movie director. My grandmother thinks I\u2019m still an engineer. When I say I\u2019m a designer, most people ask \u2014 of what. Depending on the day, all of these feel approximately correct."
   },
   {
     "id": "teaching",
-    "text": "I am in the faculty for the first Master on Responsible AI at Elisava in Barcelona, visiting lecturer at Copenhagen Institute of Interaction Design and other universities around Europe. Some workshops are about becoming objects, some are about imagining a future of trainable interfaces or when AI and robots are truly domesticated."
+    "text": "I teach at a few places in Europe \u2014 a master\u2019s programme on responsible AI in Barcelona, workshops at design schools in Copenhagen and elsewhere. Sometimes we ask students to become objects. Sometimes we ask them to imagine what happens when AI is truly domesticated. The best sessions leave everyone unsure about something they thought was settled."
   },
   {
-    "id": "wonderful-terrifying",
-    "text": "Some journalists said my work is \u201cwonderful and terrifying all at once\u201d\u2014I\u2019ll take it."
+    "id": "fabulist",
+    "text": "I wrote a <a href=\"https://www.vetroeditions.com/products/everything-is-someone\" target=\"_blank\" rel=\"noopener\">book of fables</a> about futures where everything has something like a self \u2014 objects, algorithms, cities. It\u2019s called <em>Everything is Someone</em>, which is also how I generally approach design: assume the thing you\u2019re making has a perspective, and work from there."
   },
   {
-    "id": "oio-hybrid",
-    "text": "At oio we call ourselves a hybrid team of humans and machines, which sounds more mysterious than it is\u2014we\u2019re just designers who got very interested in what it means to build products when your collaborator doesn\u2019t sleep, doesn\u2019t get bored, and occasionally hallucinates."
+    "id": "cities",
+    "text": "I spent five years in China designing things at a scale that changes how you think about what design even means. I live in Belgrade now, which has the same effect in a different direction \u2014 a city that\u2019s seen enough utopias arrive and disappear to be appropriately sceptical of the next one. Both help."
   },
   {
     "id": "part-of-problem",
-    "text": "I used to think designers were the good guys. Then I spent enough time actually building things and realised we\u2019re also part of the problem. That\u2019s not a reason to stop, but it is a reason to design differently."
+    "text": "I used to think designers were the good guys \u2014 we make things better, easier, more considered. It took a while to realise that making things better is also making more of them, faster, with more certainty that people will want them. The work hasn\u2019t changed that much, but the questions I ask before starting have."
   },
   {
-    "id": "last-pencil",
-    "text": "At Milan Design Week we made The Last Pencil\u2014an exploration of what drawing tools become when intelligence gets baked into everything. The pencil is maybe the most honest design tool ever made. We wanted to find out what happens to honesty when you add a model."
+    "id": "museum-of-future",
+    "text": "I helped build the <a href=\"projects/museum-of-the-future/\" data-preview=\"\">first Museum of the Future</a> in Dubai \u2014 not the building, but what goes inside it: scenarios, objects, and experiences from decades that haven\u2019t happened yet. It turns out imagining the future as a physical thing is harder than it sounds, because it has to be convincing in all the ways physical things are, not just the ideas."
   },
   {
-    "id": "updatables",
-    "text": "With IKEA\u2019s research lab we made <a href=\"https://updatables.oio.studio/\" target=\"_blank\" rel=\"noopener\">Updatables</a>\u2014furniture that evolves with evolutionary algorithms. A chair that knows who sits in it, a shelf that reorganises around you. It sounds convenient until you realise your home might have opinions about how you live."
-  },
-  {
-    "id": "spawns",
-    "text": "With oio and Italian silversmith Greggio Argenterie we made <a href=\"https://spawns.pages.dev/\" target=\"_blank\" rel=\"noopener\">Spawns</a>\u2014a collection of silver spoons where a generative algorithm analysed thousands of historical tableware images to suggest new forms, which were then hand-forged by craftsmen. Artisanal intelligence, we called it."
-  },
-  {
-    "id": "everything-is-someone",
-    "text": "I wrote a book of fables called Everything is Someone\u2014stories about futures where objects, animals, and systems have something like interiority. It felt more honest than a white paper.<span class=\"ref\">*</span>",
-    "footnote": "It\u2019s a real book. You can buy it. Vetro Editions."
-  },
-  {
-    "id": "oio-school",
-    "text": "We also run oio.school, where people come to work with us on future products. It\u2019s part studio, part experiment in what design education looks like when the tools change faster than the curriculum."
-  },
-  {
-    "id": "china",
-    "text": "I spent five years in China, which changed how I think about scale, speed, and the gap between how things are imagined and how they end up being made. Also about hotpot."
-  },
-  {
-    "id": "belgrade",
-    "text": "I live in Belgrade now, which is a city that has seen enough futures arrive and disappear to be appropriately sceptical about all of them. It suits me."
+    "id": "speculative-questions",
+    "text": "Speculative design is a way of asking \u201cwhat if\u201d using real materials and real craft. I\u2019ve worked in this space for a long time \u2014 the <a href=\"archive/addicted-products/\" data-preview=\"assets/img/addictedproducts.png\">toaster that got anxious when ignored</a>, the <a href=\"archive/ethical-things/\" data-preview=\"assets/img/ethicalthings.jpg\">objects that voted on ethical dilemmas</a>, the plug that held an election. They\u2019re not predictions. They\u2019re more like questions you can hold in your hand."
   }
 ]

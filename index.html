@@ -8,148 +8,81 @@
 </head>
 <body>
 
-  <main class="essay">
+  <div id="snap-wrap">
 
-    <!-- FIXED: always first -->
-    <p class="intro">I am Simone, and if you are here, I guess you are curious to know what I do&hellip; In short I do a lot of things around design, products and futures and this website will tell you some of them. But like me it might change the order of presenting them or forget something really important to say. So if you come back it might be telling you something else or in a different order, good luck.</p>
+    <!-- 1. Intro — always first -->
+    <section class="snap" id="s-intro">
+      <div class="snap-inner">
+        <p class="intro">I am Simone, and if you are here, I guess you are curious to know what I do&hellip; In short I do a lot of things around design, products and futures and this website will tell you some of them. But like me it might change the order of presenting them or forget something really important to say. So if you come back it might be telling you something else or in a different order, good luck.</p>
+      </div>
+    </section>
 
-    <!-- SHUFFLED BLOCKS — populated from assets/blocks.json -->
-    <div id="shuffle-zone"></div><!-- /shuffle-zone -->
+    <!-- 2–N. Shuffled blocks injected here -->
+    <div id="shuffle-zone"></div>
 
-    <!-- WORK — always last fixed block -->
-    <div class="archive-footer">
-      <p class="archive-label">some things i&rsquo;ve made —</p>
-      <ul class="mini-archive">
-        <li><a href="projects/oio/" data-preview="">oio</a> <span>2024 —</span></li>
-        <li><a href="projects/museum-of-the-future/" data-preview="">Museum of the Future</a> <span>2022 —</span></li>
-        <li><a href="archive/made-in-machina/" data-preview="assets/img/madeinmachina.jpg">Made in Machina/e</a> <span>2018</span></li>
-        <li><a href="archive/objective-realities/" data-preview="assets/img/objectiverealities.jpg">Objective Realities</a> <span>2018</span></li>
-        <li><a href="archive/politics-of-power/" data-preview="assets/img/politicsofpower.jpg">Politics of Power</a> <span>2017</span></li>
-        <li><a href="archive/ethical-things/" data-preview="assets/img/ethicalthings.jpg">Ethical Things</a> <span>2015</span></li>
-        <li><a href="archive/addicted-products/" data-preview="assets/img/addictedproducts.png">Addicted Products</a> <span>2012</span></li>
-        <li class="see-all"><a href="archive/">see all work →</a></li>
-      </ul>
-      <p class="colophon">Made by Simone Rebaudengo &mdash; <a href="mailto:simone@rebaudengo.com">contact</a></p>
-    </div>
+    <!-- Last. Work footer -->
+    <section class="snap snap-footer" id="s-footer">
+      <div class="snap-inner">
+        <p class="archive-label">some things i&rsquo;ve made —</p>
+        <ul class="mini-archive">
+          <li><a href="projects/oio/" data-preview="">oio</a> <span>2024 —</span></li>
+          <li><a href="projects/museum-of-the-future/" data-preview="">Museum of the Future</a> <span>2022 —</span></li>
+          <li><a href="archive/made-in-machina/" data-preview="assets/img/madeinmachina.jpg">Made in Machina/e</a> <span>2018</span></li>
+          <li><a href="archive/objective-realities/" data-preview="assets/img/objectiverealities.jpg">Objective Realities</a> <span>2018</span></li>
+          <li><a href="archive/politics-of-power/" data-preview="assets/img/politicsofpower.jpg">Politics of Power</a> <span>2017</span></li>
+          <li><a href="archive/ethical-things/" data-preview="assets/img/ethicalthings.jpg">Ethical Things</a> <span>2015</span></li>
+          <li><a href="archive/addicted-products/" data-preview="assets/img/addictedproducts.png">Addicted Products</a> <span>2012</span></li>
+          <li class="see-all"><a href="archive/">see all →</a></li>
+        </ul>
 
-    <!-- WRITINGS -->
-    <div class="archive-footer" style="margin-top: 3rem;">
-      <p class="section-label">some writings —</p>
-      <ul class="item-list">
-        <li>
-          <span class="item-title">
-            <a href="https://www.vetroeditions.com/products/everything-is-someone" target="_blank" rel="noopener">Everything is Someone</a>
-            <span class="item-sub">Book of future fables — Vetro Editions</span>
-          </span>
-          <span class="item-year">2021</span>
-        </li>
-        <li>
-          <span class="item-title">
-            <a href="https://www.oreilly.com/library/view/design-for-living/9781491997390/" target="_blank" rel="noopener">Design for Living with Smart Products</a>
-            <span class="item-sub">Book — O'Reilly</span>
-          </span>
-          <span class="item-year">2019</span>
-        </li>
-      </ul>
-      <p style="font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); margin-top: 0.75rem;">more coming —</p>
-    </div>
+        <div class="footer-cols">
+          <div>
+            <p class="section-label">writings —</p>
+            <ul class="item-list">
+              <li>
+                <span class="item-title"><a href="https://www.vetroeditions.com/products/everything-is-someone" target="_blank" rel="noopener">Everything is Someone</a><span class="item-sub">Vetro Editions</span></span>
+                <span class="item-year">2021</span>
+              </li>
+              <li>
+                <span class="item-title"><a href="https://www.oreilly.com/library/view/design-for-living/9781491997390/" target="_blank" rel="noopener">Design for Living with Smart Products</a><span class="item-sub">O'Reilly</span></span>
+                <span class="item-year">2019</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="section-label">talks —</p>
+            <ul class="item-list">
+              <li><span class="item-title"><a href="https://videos.theconference.se/simone-rebaudengo-what-is-real" target="_blank" rel="noopener">What is Real?</a><span class="item-sub">The Conference, Malmö</span></span><span class="item-year">2018</span></li>
+              <li><span class="item-title"><a href="https://vimeo.com/209301712" target="_blank" rel="noopener">Domesticating Intelligence</a><span class="item-sub">Interaction17, NYC</span></span><span class="item-year">2017</span></li>
+              <li><span class="item-title"><a href="https://vimeo.com/154786330" target="_blank" rel="noopener">Smart Frictions</a><span class="item-sub">Interaction16, Helsinki</span></span><span class="item-year">2016</span></li>
+              <li class="see-all-inline"><a href="archive/#talks">see all talks →</a></li>
+            </ul>
+          </div>
+        </div>
 
-    <!-- TALKS -->
-    <div class="archive-footer" style="margin-top: 3rem;">
-      <p class="section-label">some talks —</p>
-      <ul class="item-list">
-        <li>
-          <span class="item-title">
-            <a href="https://videos.theconference.se/simone-rebaudengo-what-is-real" target="_blank" rel="noopener">What is Real?</a>
-            <span class="item-sub">The Conference, Malmö</span>
-          </span>
-          <span class="item-year">2018</span>
-        </li>
-        <li>
-          <span class="item-title">
-            <a href="https://vimeo.com/209301712" target="_blank" rel="noopener">Domesticating Intelligence</a>
-            <span class="item-sub">Interaction17, NYC</span>
-          </span>
-          <span class="item-year">2017</span>
-        </li>
-        <li>
-          <span class="item-title">
-            <a href="https://vimeo.com/154786330" target="_blank" rel="noopener">Smart Frictions</a>
-            <span class="item-sub">Interaction16, Helsinki</span>
-          </span>
-          <span class="item-year">2016</span>
-        </li>
-        <li>
-          <span class="item-title">
-            <a href="https://vimeo.com/101369621" target="_blank" rel="noopener">Memoirs of an object</a>
-            <span class="item-sub">Solidcon, San Francisco</span>
-          </span>
-          <span class="item-year">2014</span>
-        </li>
-        <li>
-          <span class="item-title">
-            <a href="https://vimeo.com/86237861" target="_blank" rel="noopener">Great! Things are connected, but what will they talk about?</a>
-            <span class="item-sub">Dconstruct, Brighton</span>
-          </span>
-          <span class="item-year">2013</span>
-        </li>
-      </ul>
-      <p style="font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); margin-top: 0.75rem;"><a href="archive/#talks">see all talks →</a></p>
-    </div>
+        <p class="colophon">Simone Rebaudengo &mdash; <a href="mailto:simone@rebaudengo.com">contact</a></p>
+      </div>
+    </section>
 
-    <!-- AWARDS -->
-    <div class="archive-footer" style="margin-top: 3rem;">
-      <p class="section-label">some awards —</p>
-      <ul class="item-list">
-        <li>
-          <span class="item-title">
-            DSA IDEA Award — Silver, Children Products
-            <span class="item-sub">Yibu</span>
-          </span>
-          <span class="item-year">2017</span>
-        </li>
-        <li>
-          <span class="item-title">
-            FastCo Innovation by Design — Finalist, Experimental
-            <span class="item-sub">Yibu</span>
-          </span>
-          <span class="item-year">2016</span>
-        </li>
-        <li>
-          <span class="item-title">
-            Core77 Design Awards — Runner Up, Speculative Concept
-            <span class="item-sub">Ethical Things</span>
-          </span>
-          <span class="item-year">2015</span>
-        </li>
-        <li>
-          <span class="item-title">
-            IxDA Award — Best in Show &amp; Best in Category
-            <span class="item-sub">Addicted Products</span>
-          </span>
-          <span class="item-year">2014</span>
-        </li>
-        <li>
-          <span class="item-title">
-            Robot Film Festival — Most Uncanny
-            <span class="item-sub">The Story of Brad the Toaster</span>
-          </span>
-          <span class="item-year">2014</span>
-        </li>
-      </ul>
-      <p style="font-size: 0.75rem; color: var(--muted); font-family: var(--font-mono); margin-top: 0.75rem;"><a href="archive/#awards">see all awards →</a></p>
-    </div>
+  </div><!-- /snap-wrap -->
 
-  </main>
+  <!-- Scroll hint arrow -->
+  <div id="scroll-hint">↓</div>
+
+  <!-- Side dot navigation -->
+  <nav id="dot-nav" aria-label="Page sections"></nav>
 
   <!-- Floating image preview -->
   <img id="img-preview" src="" alt="" aria-hidden="true">
 
   <script>
-    // ── Typewriter core ───────────────────────────────────────
+    // Prevent browser from restoring scroll position on reload
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    document.getElementById('snap-wrap').scrollTop = 0;
+
     var SPEED = 5; // ms per character
 
-    // Walk all leaf text nodes inside el, skipping empty ones
+    // ── Text node walker ──────────────────────────────────────
     function collectTextNodes(node, result) {
       if (node.nodeType === 3) {
         if (node.textContent.length) result.push(node);
@@ -158,29 +91,28 @@
       }
     }
 
-    // Wrap every character in a <span class="ch"> with a staggered delay.
-    // Returns the number of characters wrapped.
-    function typeElement(el, startDelay) {
+    // Wrap chars in spans with --i custom property (index).
+    // CSS triggers animation when parent gets class "typing".
+    function prepareTyping(el) {
       var nodes = [];
       collectTextNodes(el, nodes);
       var count = 0;
       nodes.forEach(function (node) {
-        var chars = Array.from(node.textContent); // Unicode-safe split
+        var chars = Array.from(node.textContent);
         var frag  = document.createDocumentFragment();
         chars.forEach(function (ch) {
           var s = document.createElement('span');
           s.className = 'ch';
+          s.style.setProperty('--i', count);
           s.textContent = ch;
-          s.style.animationDelay = (startDelay + count * SPEED) + 'ms';
           frag.appendChild(s);
           count++;
         });
         node.parentNode.replaceChild(frag, node);
       });
-      return count;
     }
 
-    // ── Blocks from JSON ───────────────────────────────────────
+    // ── Build blocks ──────────────────────────────────────────
     (function () {
       var SHOW = 5;
 
@@ -192,39 +124,27 @@
         return arr;
       }
 
-      function buildBlock(data) {
-        var div = document.createElement('div');
-        div.className = 'block';
+      function buildSection(data) {
+        var section = document.createElement('section');
+        section.className = 'snap';
+
+        var inner = document.createElement('div');
+        inner.className = 'snap-inner';
 
         var p = document.createElement('p');
+        p.className = 'block-text';
         p.innerHTML = data.text;
-        div.appendChild(p);
+        inner.appendChild(p);
 
         if (data.footnote) {
           var fn = document.createElement('p');
           fn.className = 'footnote';
           fn.innerHTML = '<span class="ref">*</span> ' + data.footnote;
-          div.appendChild(fn);
-        }
-        return div;
-      }
-
-      // Type the intro first, then blocks sequentially
-      function startTyping(blockEls) {
-        var intro = document.querySelector('p.intro');
-        var delay = 120; // small initial pause
-
-        // type intro
-        if (intro) {
-          var n = typeElement(intro, delay);
-          delay += n * SPEED + 320; // gap after intro
+          inner.appendChild(fn);
         }
 
-        // type each block in order
-        blockEls.forEach(function (el) {
-          var n = typeElement(el, delay);
-          delay += n * SPEED + 220; // gap between blocks
-        });
+        section.appendChild(inner);
+        return section;
       }
 
       fetch('assets/blocks.json')
@@ -232,18 +152,79 @@
         .then(function (blocks) {
           var picked = shuffle(blocks).slice(0, SHOW);
           var zone   = document.getElementById('shuffle-zone');
-          var els    = [];
           picked.forEach(function (data) {
-            var el = buildBlock(data);
-            zone.appendChild(el);
-            els.push(el);
+            zone.appendChild(buildSection(data));
           });
-          startTyping(els);
-          initPreviews();
+          // Two rAFs: first lets layout recalculate, second resets scroll after snap reflow
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              document.getElementById('snap-wrap').scrollTop = 0;
+              initAll();
+              initPreviews();
+            });
+          });
         });
     })();
 
-    // ── Image preview follows cursor ──────────────────────────
+    // ── Init after blocks are in DOM ──────────────────────────
+    function initAll() {
+      var snapWrap = document.getElementById('snap-wrap');
+      var sections = Array.from(document.querySelectorAll('.snap'));
+
+      // Always start at the top
+      snapWrap.scrollTop = 0;
+
+      // Prepare typing on text sections (not footer)
+      sections.forEach(function (sec) {
+        if (!sec.classList.contains('snap-footer')) {
+          prepareTyping(sec);
+        }
+      });
+
+      // Build dot nav
+      var dotNav = document.getElementById('dot-nav');
+      sections.forEach(function (sec, i) {
+        var dot = document.createElement('button');
+        dot.className = 'dot';
+        dot.setAttribute('aria-label', 'Go to section ' + (i + 1));
+        dot.addEventListener('click', function () {
+          sec.scrollIntoView({ behavior: 'smooth' });
+        });
+        dotNav.appendChild(dot);
+      });
+
+      var typed = new Set();
+      var dots  = Array.from(dotNav.querySelectorAll('.dot'));
+
+      // Use snap-wrap as the observer root so intersection is relative to the scroll container
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var i = sections.indexOf(entry.target);
+          if (entry.isIntersecting) {
+            dots.forEach(function (d) { d.classList.remove('active'); });
+            if (dots[i]) dots[i].classList.add('active');
+
+            if (i > 0) document.getElementById('scroll-hint').classList.add('hidden');
+
+            if (!typed.has(entry.target) && !entry.target.classList.contains('snap-footer')) {
+              typed.add(entry.target);
+              entry.target.classList.add('typing');
+            }
+          }
+        });
+      }, { root: snapWrap, threshold: 0.6 });
+
+      sections.forEach(function (sec) { observer.observe(sec); });
+
+      // Trigger intro immediately
+      if (sections[0]) {
+        typed.add(sections[0]);
+        sections[0].classList.add('typing');
+        if (dots[0]) dots[0].classList.add('active');
+      }
+    }
+
+    // ── Image preview ─────────────────────────────────────────
     var initPreviews = (function () {
       var img = document.getElementById('img-preview');
       var fadeTimer = null;
@@ -266,22 +247,18 @@
           var src = link.getAttribute('data-preview');
           if (!src || link._previewBound) return;
           link._previewBound = true;
-
           link.addEventListener('mouseenter', function () {
             clearTimeout(fadeTimer);
             img.src = src;
             img.classList.add('visible');
           });
           link.addEventListener('mouseleave', function () {
-            fadeTimer = setTimeout(function () {
-              img.classList.remove('visible');
-            }, 100);
+            fadeTimer = setTimeout(function () { img.classList.remove('visible'); }, 100);
           });
         });
       };
     })();
 
-    // Wire up any data-preview links already in the static HTML
     initPreviews();
   </script>
 

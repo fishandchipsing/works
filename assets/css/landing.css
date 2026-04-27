@@ -33,44 +33,57 @@
   --accent: #e05a3a;
   --font-mono: 'Mono', 'Courier New', monospace;
   --font-body: 'Sans', -apple-system, sans-serif;
-  --measure: 52ch;
   --pad: clamp(1.5rem, 6vw, 3rem);
 }
 
 /* ─── Reset ──────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { font-size: 16px; -webkit-font-smoothing: antialiased; }
+html, body { height: 100%; overflow: hidden; }
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-body);
 }
 
-/* ─── Essay container ────────────────────────────────────────── */
-.essay {
-  max-width: 560px;
-  margin: 0 auto;
-  padding: clamp(3rem, 10vw, 5rem) var(--pad) 4rem;
+/* ─── Snap container ─────────────────────────────────────────── */
+#snap-wrap {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
-/* ─── Intro (fixed, always first) ───────────────────────────── */
+/* ─── Each snap section ──────────────────────────────────────── */
+.snap {
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--pad);
+  position: relative;
+}
+
+.snap-inner {
+  max-width: 560px;
+  width: 100%;
+}
+
+/* ─── Intro ──────────────────────────────────────────────────── */
 p.intro {
   font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   line-height: 1.75;
   color: var(--muted);
-  margin-bottom: 3rem;
 }
 
-/* ─── Shuffled blocks ────────────────────────────────────────── */
-.block {
-  margin-bottom: 2.5rem;
-}
-.block p {
+/* ─── Block text ─────────────────────────────────────────────── */
+p.block-text {
   font-size: clamp(0.95rem, 2.5vw, 1.05rem);
   line-height: 1.75;
   color: var(--fg);
 }
-.block p + p {
+p.block-text + p {
   margin-top: 0.6rem;
 }
 
@@ -82,10 +95,10 @@ p.intro {
   line-height: 0;
 }
 .footnote {
-  font-size: 0.78rem !important;
-  color: var(--muted) !important;
-  line-height: 1.6 !important;
-  margin-top: 0.5rem !important;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-top: 0.75rem;
 }
 
 /* ─── Links ──────────────────────────────────────────────────── */
@@ -100,11 +113,25 @@ a:hover {
   border-color: var(--accent);
 }
 
-/* ─── Archive footer ─────────────────────────────────────────── */
-.archive-footer {
-  margin-top: 4rem;
-  padding-top: 2rem;
-  border-top: 1px solid #eee;
+/* ─── Typewriter characters ──────────────────────────────────── */
+@keyframes ch-in {
+  to { opacity: 1; }
+}
+.ch {
+  opacity: 0;
+}
+.typing .ch {
+  animation: ch-in 1ms calc(var(--i) * 5ms) linear forwards;
+}
+
+/* ─── Footer snap section ────────────────────────────────────── */
+.snap-footer {
+  align-items: flex-start;
+  padding-top: clamp(3rem, 8vh, 5rem);
+  padding-bottom: clamp(2rem, 5vh, 3rem);
+  height: auto;
+  min-height: 100vh;
+  overflow-y: auto;
 }
 
 .archive-label {
@@ -133,9 +160,7 @@ a:hover {
   border-bottom: none;
   color: var(--fg);
 }
-.mini-archive li a:hover {
-  color: var(--accent);
-}
+.mini-archive li a:hover { color: var(--accent); }
 .mini-archive li span {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -156,27 +181,85 @@ a:hover {
   border-color: var(--accent);
 }
 
+/* ─── Footer two-col layout ──────────────────────────────────── */
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 520px) {
+  .footer-cols { grid-template-columns: 1fr; }
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  text-transform: lowercase;
+  margin-bottom: 0.75rem;
+}
+
+.item-list {
+  list-style: none;
+}
+.item-list li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+.item-list li.see-all-inline {
+  display: block;
+  border-bottom: none;
+  padding-top: 0.6rem;
+}
+.item-list li.see-all-inline a {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+.item-list li .item-title {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--fg);
+  line-height: 1.5;
+}
+.item-list li .item-title a { border-bottom: none; color: inherit; }
+.item-list li .item-title a:hover { color: var(--accent); }
+.item-list li .item-sub {
+  display: block;
+  font-size: 0.68rem;
+  color: var(--muted);
+  margin-top: 0.1rem;
+  font-family: var(--font-body);
+}
+.item-list li .item-year {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
 .colophon {
   font-size: 0.72rem;
   color: #ccc;
   font-family: var(--font-mono);
 }
-.colophon a {
-  color: #ccc;
-  border-bottom: 1px solid #eee;
-}
-.colophon a:hover {
-  color: var(--muted);
-}
+.colophon a { color: #ccc; border-bottom: 1px solid #eee; }
+.colophon a:hover { color: var(--muted); }
 
-/* ─── Floating image preview on hover ────────────────────────── */
+/* ─── Floating image preview ─────────────────────────────────── */
 #img-preview {
   position: fixed;
   width: 200px;
   aspect-ratio: 4/3;
   object-fit: cover;
   pointer-events: none;
-  z-index: 0;
+  z-index: 10;
   opacity: 0;
   transform: scale(0.94) translateY(6px);
   transition: opacity 0.35s ease, transform 0.35s ease;
@@ -187,68 +270,47 @@ a:hover {
   transform: scale(1) translateY(0);
 }
 
-/* Keep text layer clearly above preview */
-.essay {
-  position: relative;
-  z-index: 1;
+/* ─── Dot navigation ─────────────────────────────────────────── */
+#dot-nav {
+  position: fixed;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  z-index: 20;
+}
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ddd;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.dot.active {
+  background: var(--fg);
+  transform: scale(1.4);
 }
 
-/* ─── Typewriter characters ──────────────────────────────────── */
-@keyframes ch-in {
-  to { opacity: 1; }
-}
-.ch {
-  opacity: 0;
-  animation: ch-in 1ms linear forwards;
-  /* animationDelay is set inline per character */
-}
-
-/* ─── Talks & writings sections ──────────────────────────────── */
-.section-label {
+/* ─── Scroll hint ────────────────────────────────────────────── */
+#scroll-hint {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
+  font-size: 0.75rem;
   color: var(--muted);
-  text-transform: lowercase;
-  margin-bottom: 1rem;
-  margin-top: 3rem;
+  z-index: 20;
+  animation: hint-bob 1.8s ease-in-out infinite;
+  transition: opacity 0.4s;
 }
-
-.item-list {
-  list-style: none;
-  margin-bottom: 1rem;
-}
-.item-list li {
-  padding: 0.6rem 0;
-  border-bottom: 1px solid #f0f0f0;
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 1rem;
-  align-items: baseline;
-}
-.item-list li .item-title {
-  font-size: 0.82rem;
-  font-family: var(--font-mono);
-  color: var(--fg);
-  line-height: 1.5;
-}
-.item-list li .item-title a {
-  border-bottom: none;
-  color: inherit;
-}
-.item-list li .item-title a:hover {
-  color: var(--accent);
-}
-.item-list li .item-sub {
-  display: block;
-  font-size: 0.72rem;
-  color: var(--muted);
-  margin-top: 0.15rem;
-  font-family: var(--font-sans);
-}
-.item-list li .item-year {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--muted);
-  white-space: nowrap;
+#scroll-hint.hidden { opacity: 0; pointer-events: none; }
+@keyframes hint-bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(5px); }
 }

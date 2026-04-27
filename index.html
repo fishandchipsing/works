@@ -146,7 +146,41 @@
   <img id="img-preview" src="" alt="" aria-hidden="true">
 
   <script>
-    // ── Load blocks from JSON, pick 5, render, then animate ──
+    // ── Typewriter core ───────────────────────────────────────
+    var SPEED = 5; // ms per character
+
+    // Walk all leaf text nodes inside el, skipping empty ones
+    function collectTextNodes(node, result) {
+      if (node.nodeType === 3) {
+        if (node.textContent.length) result.push(node);
+      } else {
+        node.childNodes.forEach(function (c) { collectTextNodes(c, result); });
+      }
+    }
+
+    // Wrap every character in a <span class="ch"> with a staggered delay.
+    // Returns the number of characters wrapped.
+    function typeElement(el, startDelay) {
+      var nodes = [];
+      collectTextNodes(el, nodes);
+      var count = 0;
+      nodes.forEach(function (node) {
+        var chars = Array.from(node.textContent); // Unicode-safe split
+        var frag  = document.createDocumentFragment();
+        chars.forEach(function (ch) {
+          var s = document.createElement('span');
+          s.className = 'ch';
+          s.textContent = ch;
+          s.style.animationDelay = (startDelay + count * SPEED) + 'ms';
+          frag.appendChild(s);
+          count++;
+        });
+        node.parentNode.replaceChild(frag, node);
+      });
+      return count;
+    }
+
+    // ── Blocks from JSON ───────────────────────────────────────
     (function () {
       var SHOW = 5;
 
@@ -161,9 +195,6 @@
       function buildBlock(data) {
         var div = document.createElement('div');
         div.className = 'block';
-        div.style.opacity = '0';
-        div.style.transform = 'translateY(18px)';
-        div.style.transition = 'opacity 0.55s ease, transform 0.55s ease';
 
         var p = document.createElement('p');
         p.innerHTML = data.text;
@@ -178,19 +209,21 @@
         return div;
       }
 
-      function initObserver() {
-        var observer = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = '1';
-              entry.target.style.transform = 'translateY(0)';
-              observer.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.12 });
+      // Type the intro first, then blocks sequentially
+      function startTyping(blockEls) {
+        var intro = document.querySelector('p.intro');
+        var delay = 120; // small initial pause
 
-        document.querySelectorAll('.block').forEach(function (el) {
-          observer.observe(el);
+        // type intro
+        if (intro) {
+          var n = typeElement(intro, delay);
+          delay += n * SPEED + 320; // gap after intro
+        }
+
+        // type each block in order
+        blockEls.forEach(function (el) {
+          var n = typeElement(el, delay);
+          delay += n * SPEED + 220; // gap between blocks
         });
       }
 
@@ -198,12 +231,14 @@
         .then(function (r) { return r.json(); })
         .then(function (blocks) {
           var picked = shuffle(blocks).slice(0, SHOW);
-          var zone = document.getElementById('shuffle-zone');
+          var zone   = document.getElementById('shuffle-zone');
+          var els    = [];
           picked.forEach(function (data) {
-            zone.appendChild(buildBlock(data));
+            var el = buildBlock(data);
+            zone.appendChild(el);
+            els.push(el);
           });
-          initObserver();
-          // re-wire image previews for any data-preview links just added
+          startTyping(els);
           initPreviews();
         });
     })();

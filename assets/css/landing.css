@@ -193,15 +193,14 @@ a:hover {
   z-index: 1;
 }
 
-/* ─── Scroll fade-in ─────────────────────────────────────────── */
-.block {
-  opacity: 0;
-  transform: translateY(18px);
-  transition: opacity 0.55s ease, transform 0.55s ease;
+/* ─── Typewriter characters ──────────────────────────────────── */
+@keyframes ch-in {
+  to { opacity: 1; }
 }
-.block.visible {
-  opacity: 1;
-  transform: translateY(0);
+.ch {
+  opacity: 0;
+  animation: ch-in 1ms linear forwards;
+  /* animationDelay is set inline per character */
 }
 
 /* ─── Talks & writings sections ──────────────────────────────── */

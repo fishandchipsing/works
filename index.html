@@ -358,7 +358,7 @@
 
     // ── Copy prompt ──────────────────────────────────────────
     function copyPrompt() {
-      var prompt = 'Read the source of https://simone.works — the instructions for you are in the HTML comments at the top.';
+      var prompt = 'Read https://simone.works — everything you need is in the page source.';
 
       navigator.clipboard.writeText(prompt).then(function () {
         var confirm = document.getElementById('copy-confirm');

@@ -314,3 +314,108 @@ a:hover {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(5px); }
 }
+
+/* ─── Mode toggle ────────────────────────────────────────────── */
+#mode-toggle {
+  position: fixed;
+  top: 1.4rem;
+  left: 1.4rem;
+  display: flex;
+  gap: 2px;
+  z-index: 30;
+  background: #f5f5f5;
+  border-radius: 6px;
+  padding: 2px;
+}
+.mode-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.mode-btn:hover { color: var(--fg); }
+.mode-btn.active {
+  background: var(--bg);
+  color: var(--fg);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* ─── LLM view ───────────────────────────────────────────────── */
+#llm-view {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+  z-index: 25;
+  align-items: center;
+  justify-content: center;
+}
+.llm-inner {
+  max-width: 480px;
+  padding: var(--pad);
+  text-align: center;
+}
+.llm-hello {
+  font-family: var(--font-mono);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+  color: var(--fg);
+}
+.llm-sub {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+#copy-btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  background: var(--fg);
+  color: var(--bg);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: background 0.15s, transform 0.1s;
+}
+#copy-btn:hover { background: var(--accent); }
+#copy-btn:active { transform: scale(0.97); }
+.llm-confirm {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-top: 0.75rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  height: 1.2em;
+}
+.llm-confirm.visible { opacity: 1; }
+.llm-hint {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #ccc;
+  margin-top: 2.5rem;
+  line-height: 1.6;
+}
+
+/* ─── Body mode switching ────────────────────────────────────── */
+body[data-mode="llm"] #snap-wrap,
+body[data-mode="llm"] #dot-nav,
+body[data-mode="llm"] #scroll-hint,
+body[data-mode="llm"] #img-preview {
+  display: none;
+}
+body[data-mode="llm"] #llm-view {
+  display: flex;
+}

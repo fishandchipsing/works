@@ -203,18 +203,20 @@ a:hover {
   border-color: var(--accent);
 }
 
-/* ─── Footer three-col layout ────────────────────────────────── */
+/* ─── Footer two-col layout ──────────────────────────────────── */
 .footer-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 2rem;
-  margin-bottom: 2.5rem;
-}
-@media (max-width: 720px) {
-  .footer-cols { grid-template-columns: 1fr 1fr; }
+  margin-bottom: 2rem;
 }
 @media (max-width: 520px) {
   .footer-cols { grid-template-columns: 1fr; }
+}
+
+/* ─── Thoughts: full-width column under footer-cols ─────────── */
+.footer-thoughts {
+  margin-bottom: 2.5rem;
 }
 
 .section-label {

@@ -280,8 +280,10 @@ a:hover {
 /* ─── Screenshots carousel ───────────────────────────────────── */
 #screenshots {
   display: none; /* shown by JS when manifest has entries */
-  padding-left: var(--pad);
-  padding-bottom: clamp(2rem, 6vh, 4rem);
+  /* break out of footer-inner's max-width to go full-bleed */
+  margin-left: calc(-1 * var(--pad));
+  margin-right: calc(-1 * var(--pad));
+  margin-bottom: 2rem;
 }
 
 #screenshots-track {
@@ -291,6 +293,7 @@ a:hover {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  padding-left: var(--pad);
   padding-right: var(--pad);
   cursor: grab;
 }

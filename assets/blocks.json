@@ -9,7 +9,7 @@
   },
   {
     "id": "machine-collaboration",
-    "text": "I think I\u2019m not that great at designing things, so I\u2019ve spent a lot of time finding ways to make machines do it with me. <a href=\"https://spawns.pages.dev/\" target=\"_blank\" rel=\"noopener\">Spoons co-designed with algorithms and craftsmen</a>. <a href=\"https://updatables.oio.studio/\" target=\"_blank\" rel=\"noopener\">Furniture that evolves</a>. A whole <a href=\"archive/made-in-machina/\" data-preview=\"assets/img/madeinmachina.jpg\">fictional company that generated hybrid products</a>. What surprised me is that the collaboration is always more interesting when neither party is fully in control."
+    "text": "I think I\u2019m not that great at designing things, so I\u2019ve spent a lot of time finding ways to make machines do it with me. <a href=\"https://spawns.pages.dev/\" target=\"_blank\" rel=\"noopener\">Spoons co-designed with algorithms and craftsmen</a>. <a href=\"https://www.dezeen.com/2022/05/27/oio-ikea-ai-space10-furniture-evolve-adapt/\" target=\"_blank\" rel=\"noopener\">Furniture that evolves</a>. A whole <a href=\"archive/made-in-machina/\" data-preview=\"assets/img/madeinmachina.jpg\">fictional company that generated hybrid products</a>. What surprised me is that the collaboration is always more interesting when neither party is fully in control."
   },
   {
     "id": "mundane-futures",
@@ -21,11 +21,15 @@
   },
   {
     "id": "press-identity",
-    "text": "A journalist once wrote that my work was \u201cwonderful and terrifying all at once.\u201d A museum called me a movie director. My grandmother thinks I\u2019m still an engineer. When I say I\u2019m a designer, most people ask \u2014 of what. Depending on the day, all of these feel approximately correct."
+    "text": "A journalist once wrote that my work was \u201cwonderful and terrifying all at once.\u201d A museum called me a movie director \u2014 which felt about right: I made an <a href=\"archive/objective-realities/\" data-preview=\"assets/img/objectiverealities.jpg\">immersive installation about being an appliance</a> with Bruce Sterling, and a short film that won the Robot Film Festival. My grandmother thinks I\u2019m still an engineer. When I say I\u2019m a designer, most people ask \u2014 of what. Depending on the day, all of these feel approximately correct."
   },
   {
     "id": "teaching",
     "text": "I teach at a few places in Europe \u2014 a master\u2019s programme on responsible AI in Barcelona, workshops at design schools in Copenhagen and elsewhere. Sometimes we ask students to become objects. Sometimes we ask them to imagine what happens when AI is truly domesticated. The best sessions leave everyone unsure about something they thought was settled."
+  },
+  {
+    "id": "writing",
+    "text": "At some point I realised I couldn\u2019t prototype all the future stories I had in mind, so writing became faster. I wrote <a href=\"https://medium.com/approximately-tomorrow\" target=\"_blank\" rel=\"noopener\">short stories</a> about people becoming things and things becoming people \u2014 and quite a lot about being a robot arm. Also many jobs that will never exist for the <a href=\"projects/museum-of-the-future/\" data-preview=\"\">Museum of the Future</a>. And eventually a whole <a href=\"https://www.vetroeditions.com/products/everything-is-someone\" target=\"_blank\" rel=\"noopener\">book of fables</a> about what happens when everything has something like a self."
   },
   {
     "id": "fabulist",

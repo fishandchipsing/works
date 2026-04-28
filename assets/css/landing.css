@@ -277,6 +277,45 @@ a:hover {
 .colophon a { color: #ccc; border-bottom: 1px solid #eee; }
 .colophon a:hover { color: var(--muted); }
 
+/* ─── Screenshots carousel ───────────────────────────────────── */
+#screenshots {
+  display: none; /* shown by JS when manifest has entries */
+  padding-left: var(--pad);
+  padding-bottom: clamp(2rem, 6vh, 4rem);
+}
+
+#screenshots-track {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-right: var(--pad);
+  cursor: grab;
+}
+#screenshots-track:active { cursor: grabbing; }
+#screenshots-track::-webkit-scrollbar { display: none; }
+
+.shot-item {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
+.shot-item img {
+  display: block;
+  height: 180px;
+  width: auto;
+  max-width: 320px;
+  object-fit: cover;
+}
+.shot-date {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+  letter-spacing: 0.03em;
+}
+
 /* ─── Floating image preview ─────────────────────────────────── */
 #img-preview {
   position: fixed;

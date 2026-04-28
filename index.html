@@ -172,6 +172,11 @@
       </div>
     </div>
 
+    <!-- Screenshots -->
+    <section id="screenshots">
+      <div id="screenshots-track"></div>
+    </section>
+
     <!-- Work footer -->
     <footer id="site-footer">
       <div class="footer-inner">
@@ -341,6 +346,49 @@
           showBlock(parseInt(this.value));
         });
       });
+
+    // ── Screenshots carousel ──────────────────────────────────
+    (function () {
+      var track = document.getElementById('screenshots-track');
+      var section = document.getElementById('screenshots');
+
+      fetch('assets/screenshots/manifest.json')
+        .then(function (r) { return r.json(); })
+        .then(function (items) {
+          if (!items || !items.length) return;
+          items.forEach(function (item) {
+            var div = document.createElement('div');
+            div.className = 'shot-item';
+            var img = document.createElement('img');
+            img.src = 'assets/screenshots/' + item.file;
+            img.alt = item.date || '';
+            img.loading = 'lazy';
+            var date = document.createElement('p');
+            date.className = 'shot-date';
+            date.textContent = item.date || '';
+            div.appendChild(img);
+            div.appendChild(date);
+            track.appendChild(div);
+          });
+          section.style.display = 'block';
+
+          // drag-to-scroll
+          var isDown = false, startX, scrollLeft;
+          track.addEventListener('mousedown', function (e) {
+            isDown = true;
+            startX = e.pageX - track.offsetLeft;
+            scrollLeft = track.scrollLeft;
+          });
+          track.addEventListener('mouseleave', function () { isDown = false; });
+          track.addEventListener('mouseup',    function () { isDown = false; });
+          track.addEventListener('mousemove',  function (e) {
+            if (!isDown) return;
+            e.preventDefault();
+            track.scrollLeft = scrollLeft - (e.pageX - track.offsetLeft - startX);
+          });
+        })
+        .catch(function () { /* no screenshots yet */ });
+    })();
 
     // ── Image preview ─────────────────────────────────────────
     var initPreviews = (function () {

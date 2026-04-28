@@ -203,12 +203,15 @@ a:hover {
   border-color: var(--accent);
 }
 
-/* ─── Footer two-col layout ──────────────────────────────────── */
+/* ─── Footer three-col layout ────────────────────────────────── */
 .footer-cols {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
   margin-bottom: 2.5rem;
+}
+@media (max-width: 720px) {
+  .footer-cols { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 520px) {
   .footer-cols { grid-template-columns: 1fr; }

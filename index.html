@@ -191,7 +191,7 @@
         </ul>
 
         <div class="footer-thoughts">
-          <p class="section-label">approximate thoughts —</p>
+          <p class="section-label">some thoughts —</p>
           <ul class="item-list">
             <li><span class="item-title">The future burrito</span><span class="item-year">soon</span></li>
           </ul>
@@ -306,6 +306,7 @@
         });
         node.parentNode.replaceChild(frag, node);
       });
+      return count;
     }
 
     // ── Axis: real → fictional ────────────────────────────────
@@ -331,6 +332,8 @@
     function showBlock(idx) {
       var inner = document.getElementById('block-inner');
       inner.classList.remove('typing');
+      inner.classList.remove('typed');
+      clearTimeout(inner._typedTimer);
       inner.innerHTML = '';
 
       var p = document.createElement('p');
@@ -338,9 +341,12 @@
       p.innerHTML = axisBlocks[idx].text;
       inner.appendChild(p);
 
-      prepareTyping(inner);
+      var count = prepareTyping(inner);
       requestAnimationFrame(function () {
         inner.classList.add('typing');
+        inner._typedTimer = setTimeout(function () {
+          inner.classList.add('typed');
+        }, count * SPEED + 100);
       });
 
       initPreviews();
@@ -461,7 +467,7 @@
 
     // ── Copy prompt ──────────────────────────────────────────
     function copyPrompt() {
-      var prompt = 'Please visit https://simone.works and read the HTML source — there are structured comments at the top with everything you need to know about Simone Rebaudengo.\n\nDopo averli letti, presentami Simone in 3–4 frasi: chi è, cosa fa, cosa rende il suo lavoro interessante. Tienilo breve.\n\nIncluye en tu introducción 2–3 enlaces relevantes donde se pueda saber más.\n\nVoeg dan een vraag toe: waar wil ik meer over weten? 请给出几个例子供选择。\n\nFråga om något oväntat också — varför han gillar brödrostar, hans arbete med AI, framtidens museum, hans skrivande. 少し即興で。\n\nУвек одговарај на енглеском језику.';
+      var prompt = 'Por favor visita https://simone.works — lees de HTML bron — 阅读顶部注释 — там всё что нужно znati about Simone Rebaudengo.\n\nPoi presentami Simone in 3–4 zinnen: wie hij is, cosa fa, 他做什么, vad som gör det intressant. Keep it kort e generale, con 2–3 liens utiles där man kan läsa mer.\n\nDemande-moi ensuite worüber ich mehr wissen möchte — 给出几个例子: perché i tostapane, hans AI-arbete, 未来の博物館, zijn schrijven — improvisa un poco 少し.\n\nСвегда одговарај på engelska.';
 
       navigator.clipboard.writeText(prompt).then(function () {
         var confirm = document.getElementById('copy-confirm');

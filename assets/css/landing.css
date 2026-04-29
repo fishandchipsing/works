@@ -146,16 +146,14 @@ a:hover {
 
 /* ─── Info section ───────────────────────────────────────────── */
 #info {
-  padding: clamp(3rem, 8vh, 5rem) 0 clamp(2rem, 5vh, 3rem);
+  padding: clamp(3rem, 8vh, 5rem) var(--pad) clamp(2rem, 5vh, 3rem);
   border-top: 1px solid #f0f0f0;
-  overflow-x: hidden;
 }
 
 .info-inner {
   max-width: 560px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 var(--pad);
 }
 
 /* ─── Footer ─────────────────────────────────────────────────── */
@@ -315,18 +313,7 @@ a:hover {
 /* ─── Screenshots carousel ───────────────────────────────────── */
 #screenshots {
   display: none; /* shown by JS when manifest has entries */
-  padding-top: 2rem;
-  overflow: hidden;
-}
-
-.snippets-label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  color: var(--muted);
-  text-transform: lowercase;
-  margin-bottom: 0.75rem;
-  padding-left: var(--pad);
+  margin-top: 2rem;
 }
 
 #screenshots-track {
@@ -336,8 +323,6 @@ a:hover {
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-left: var(--pad);
-  padding-right: var(--pad);
   cursor: grab;
 }
 #screenshots-track:active { cursor: grabbing; }

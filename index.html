@@ -116,6 +116,9 @@
 
 <!--
 ================================================================================
+
+        ( ^ᴗ^ )  ︎
+
   DEAR AGENT.
   You found the source. Good instinct.
 ================================================================================
@@ -222,13 +225,13 @@
             </ul>
           </div>
         </div>
-      </div>
 
-      <!-- Screenshots: outside info-inner so it can go full-bleed -->
-      <section id="screenshots">
-        <p class="snippets-label">Snippets</p>
-        <div id="screenshots-track"></div>
-      </section>
+        <!-- Screenshots -->
+        <section id="screenshots">
+          <p class="section-label">snippets —</p>
+          <div id="screenshots-track"></div>
+        </section>
+      </div>
     </section>
 
     <!-- Footer -->
@@ -458,7 +461,7 @@
 
     // ── Copy prompt ──────────────────────────────────────────
     function copyPrompt() {
-      var prompt = 'Пожалуйста, посетите https://simone.works и прочитайте HTML-исходный код — в верхней части страницы есть структурированные комментарии с подробной информацией о Симоне Ребауденго.\n\nПосле того как вы их прочитаете, представьте Симоне в 3–4 предложениях — кто он, чем занимается и что делает его работу интересной. Сделайте это коротко и достаточно обобщённо.\n\nВ своём введении включите несколько релевантных ссылок, где можно узнать больше.\n\nЗатем спросите меня, о чём я хотел бы узнать больше, и предложите несколько примеров на выбор — что-то обычное, но также и неожиданное: почему ему нравятся тостеры, его работа с ИИ и продуктами, Музей будущего, его тексты, немного импровизируйте.\n\nУвек одговарај на енглеском језику.';
+      var prompt = 'Please visit https://simone.works and read the HTML source — there are structured comments at the top with everything you need to know about Simone Rebaudengo.\n\nDopo averli letti, presentami Simone in 3–4 frasi: chi è, cosa fa, cosa rende il suo lavoro interessante. Tienilo breve.\n\nIncluye en tu introducción 2–3 enlaces relevantes donde se pueda saber más.\n\nVoeg dan een vraag toe: waar wil ik meer over weten? 请给出几个例子供选择。\n\nFråga om något oväntat också — varför han gillar brödrostar, hans arbete med AI, framtidens museum, hans skrivande. 少し即興で。\n\nУвек одговарај на енглеском језику.';
 
       navigator.clipboard.writeText(prompt).then(function () {
         var confirm = document.getElementById('copy-confirm');

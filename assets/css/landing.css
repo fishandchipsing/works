@@ -376,11 +376,11 @@ a:hover {
 
 /* ─── Mode toggle ────────────────────────────────────────────── */
 #mode-toggle {
+  display: none;
   position: fixed;
   top: 1.4rem;
   left: 50%;
   transform: translateX(-50%);
-  display: flex;
   gap: 2px;
   z-index: 30;
   background: #f5f5f5;
@@ -470,4 +470,12 @@ body[data-mode="llm"] #img-preview {
 }
 body[data-mode="llm"] #llm-view {
   display: flex;
+}
+body[data-mode="llm"] #site-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 26;
+  background: var(--bg);
 }

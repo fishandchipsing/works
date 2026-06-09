@@ -374,9 +374,27 @@ a:hover {
   transform: scale(1) translateY(0);
 }
 
+/* ─── Coming soon note ───────────────────────────────────────── */
+#coming-soon-note {
+  position: fixed;
+  top: 1.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  z-index: 31;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  margin-top: 2.4rem;
+}
+#coming-soon-note.visible { opacity: 1; }
+
 /* ─── Mode toggle ────────────────────────────────────────────── */
 #mode-toggle {
-  display: none;
+  display: flex;
   position: fixed;
   top: 1.4rem;
   left: 50%;
